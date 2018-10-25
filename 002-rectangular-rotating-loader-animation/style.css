@@ -1,0 +1,67 @@
+html, body {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+}
+
+.loader {
+	width: 150px;
+	height: 150px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader span {
+	position: absolute;
+	--diameter: calc(40% + (var(--n) - 1) * 30%);
+	width: var(--diameter);
+	height: var(--diameter);
+	box-sizing: border-box;
+	border: 10px solid dimgray;
+	border-radius: 2px;
+	animation: rotating linear infinite;
+}
+
+.loader span:nth-child(1) {
+	--n: 1;
+	animation-duration: 1s;
+}
+
+.loader span:nth-child(2) {
+	--n: 2;
+	animation-duration: 2s;
+}
+
+.loader span:nth-child(3) {
+	--n: 3;
+	animation-duration: 4s;
+}
+
+.loader span::before,
+.loader span::after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 50%;
+	background-color: gold;
+}
+
+.loader span::before {
+	top: -10px;
+	left: -10px;
+}
+
+.loader span::after {
+	bottom: -10px;
+	right: -10px;
+}
+
+@keyframes rotating {
+	to {
+		transform: rotateY(1turn);
+	}
+}

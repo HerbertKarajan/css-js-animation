@@ -1,0 +1,62 @@
+body {
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+}
+
+.circle {
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.circle::before,
+.circle::after {
+	content: '';
+	position: absolute;
+}
+
+.circle,
+.circle::before,
+.circle::after {
+	--diameter: calc(10em - (var(--n) - 1) * 30%);
+	width: var(--diameter);
+	height: var(--diameter);
+	border: 0.4em solid;
+	border-radius: 50%;
+	border-color: var(--top-color) transparent var(--bottom-color) transparent;
+	animation: animate ease-in-out infinite alternate;
+	animation-duration: var(--duration);
+}
+
+.circle {
+	--n: 1;
+	--top-color: red;
+	--bottom-color: blue;
+	--duration: 4s;
+}
+
+.circle::before {
+	--n: 2;
+	--top-color: orange;
+	--bottom-color: cyan;
+	--duration: 8s;
+}
+
+.circle::after {
+	--n: 3;
+	--top-color: yellow;
+	--bottom-color: limegreen;
+	--duration: 16s;
+}
+
+@keyframes animate {
+	to {
+		transform: rotate(4turn);
+	}
+}

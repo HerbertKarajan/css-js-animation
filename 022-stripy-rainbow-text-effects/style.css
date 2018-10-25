@@ -1,0 +1,68 @@
+html, body {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: black;
+}
+
+.rainbow {
+	color: transparent;
+	font-size: 300px;
+	text-transform: uppercase;
+	font-family: sans-serif;
+	font-weight: bold;
+	line-height: 1em;
+	position: relative;
+}
+
+.rainbow span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: hsl(calc((345 - var(--n) * 45) * 1deg), 80%, 65%);
+	overflow: hidden;
+	filter: opacity(0);
+	z-index: var(--n);
+	height: calc(100% - 10% * var(--n));
+	animation: animate 0.8s infinite alternate;
+	animation-delay: calc(0.8s - 0.1s * var(--n));
+}
+
+.rainbow span:nth-child(1) {
+	--n: 1;
+}
+
+.rainbow span:nth-child(2) {
+	--n: 2;
+}
+
+.rainbow span:nth-child(3) {
+	--n: 3;
+}
+
+.rainbow span:nth-child(4) {
+	--n: 4;
+}
+
+.rainbow span:nth-child(5) {
+	--n: 5;
+}
+
+.rainbow span:nth-child(6) {
+	--n: 6;
+}
+
+.rainbow span:nth-child(7) {
+	--n: 7;
+}
+
+.rainbow span:nth-child(8) {
+	--n: 8;
+}
+
+@keyframes animate {
+	to {
+		filter: opacity(1);
+	}
+}

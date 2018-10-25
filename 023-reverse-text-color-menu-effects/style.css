@@ -1,0 +1,49 @@
+body {
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right bottom, gold, chocolate);
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+nav ul li {
+	font-size: 40px;
+	font-family: sans-serif;
+	background-color: white;
+	border: 2px solid black;
+	letter-spacing: 0.1em;
+	width: 5em;
+	height: 1.5em;
+	line-height: 1.5em;
+	position: relative;
+	overflow: hidden;
+	margin: 0.5em;
+	cursor: pointer;
+}
+
+nav ul li span {
+	color: white;
+	mix-blend-mode: difference;
+}
+
+nav ul li::before {
+	content: '';
+	position: absolute;
+	width: 1.5em;
+	height: inherit;
+	background-color: black;
+	border-radius: 50%;
+	top: 0;
+	left: -0.75em;
+	transition: 0.5s ease-out;
+}
+
+nav ul li:hover::before {
+	transform: scale(7);
+}

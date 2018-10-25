@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.container {
+    width: 70vmin;
+    height: 70vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --particles: calc(var(--particles-per-circle) * var(--circles));
+}
+
+.container div {
+    position: absolute;
+    width: 10vmin;
+    height: 10vmin;
+    transform: rotate(calc(var(--n) / var(--particles-per-circle) * -360deg));
+}
+
+.container div span {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    background-color: orangered;
+    animation: 
+        move 2s linear infinite,
+        change-color 2s linear infinite;
+    animation-delay: calc(var(--n) / var(--particles) * -2s);
+}
+
+@keyframes move {
+    from {
+        transform: translateX(0) scale(0);
+    }
+
+    70% {
+        transform: translateX(210%) scale(0.55);
+    }
+
+    to {
+        transform: translateX(300%) scale(0);
+    }
+}
+
+@keyframes change-color {
+    to {
+        filter: hue-rotate(1turn);
+    }
+}
